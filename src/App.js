@@ -1,14 +1,12 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Landing from "./components/Landing";
+import { AppProvider } from "./context/AppContext";
 
 function App() {
   return (
-    <div className='App'>
-      <header className='App-header'>
-        <p>Under reactive construction...</p>
-        <img src={logo} className='App-logo' alt='logo' />
-      </header>
-    </div>
+    <AppProvider>
+      <Landing />
+    </AppProvider>
   );
 }
 
