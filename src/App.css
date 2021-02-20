@@ -5,6 +5,7 @@
 .App-logo {
   pointer-events: none;
   width: 70%;
+  height: 20%;
 }
 
 .App-header {
@@ -21,15 +22,6 @@
 
 .App-link {
   color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
 
 @font-face {
@@ -49,4 +41,8 @@
   height: 100%;
   width: calc(10px + 8vmin);
   cursor: pointer;
+}
+
+.under {
+  height: 0px;
 }
