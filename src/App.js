@@ -53,7 +53,7 @@ function App() {
             }
           />
         </div>
-        <p class='under'>Under reactive construction...</p>
+        <p class='under'>In works...</p>
         <img src={logo} className='App-logo' alt='logo' />
       </header>
     </div>
