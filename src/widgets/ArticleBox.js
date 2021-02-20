@@ -6,8 +6,9 @@ const StyledBox = styled.div`
   border-radius: 5px;
   max-width: 700px;
   margin: auto;
-  margin-bottom: 20px;
+  margin-top: 20px;
   padding-left: 20px;
+  overflow: hidden;
 `;
 
 const StyledTag = styled.p`
@@ -20,6 +21,7 @@ const StyledTag = styled.p`
   font-size: 10px;
   font-weight: bold;
   cursor: pointer;
+  float: left;
   color: ${(props) => (props.dark ? "white" : "black")};
 
   &:hover {
@@ -38,10 +40,12 @@ const StyledText = styled.p`
   font-size: 13px;
   padding-right: 20px;
   text-align: justify;
+  float: left;
 `;
 
 const StyledDate = styled.p`
   font-size: 8px;
+  float: left;
 `;
 const StyledMore = styled.p`
   display: inline;

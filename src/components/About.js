@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const StyledLanding = styled.div`
-  overflow: auto;
-  height: auto;
-  min-height: 500px;
+  overflow: hidden;
+  height: 100%;
+  min-height: 100%;
   -webkit-transition: background-color 500ms ease-out 0.2s;
   -moz-transition: background-color 500ms ease-out 0.2s;
   -o-transition: background-color 500ms ease-out 0.2s;

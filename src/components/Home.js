@@ -1,18 +1,5 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import Footer from "./Footer";
-import { withRouter } from "react-router-dom";
-
-const StyledLanding = styled.div`
-  overflow: auto;
-  height: auto;
-  min-height: 500px;
-  -webkit-transition: background-color 500ms ease-out 0.2s;
-  -moz-transition: background-color 500ms ease-out 0.2s;
-  -o-transition: background-color 500ms ease-out 0.2s;
-  transition: background-color 500ms ease-out 0.2s;
-  background-color: ${(props) => (props.dark ? " #2e5cb8" : "#f2f2f2")};
-`;
 
 const StyledText = styled.p`
   -webkit-transition: color 500ms ease-out 0.2s;
@@ -20,15 +7,91 @@ const StyledText = styled.p`
   -o-transition: color 500ms ease-out 0.2s;
   transition: color 500ms ease-out 0.2s;
   color: ${(props) => (props.dark ? "white" : "black")};
+  width: 85%;
+  margin: 0px auto;
+  text-align: left;
 `;
 
 export default function Home(props) {
   console.log(props);
   return (
     <>
-      <StyledLanding dark={props.dark}>
-        <StyledText dark={props.dark}>Home</StyledText>
-      </StyledLanding>
+      <StyledText dark={props.dark}>
+        What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and
+        typesetting industry Lorem Ipsum has been the industry's standard dummy
+        text ever since the 1500s when an unknown printer took a galley of type
+        and scrambled it to make a type specimen book it has? What is Lorem
+        Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book it has? What is Lorem Ipsum
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book it has? What is Lorem Ipsum
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book it has? What is Lorem Ipsum
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book it has? What is Lorem Ipsum
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book it has? What is Lorem Ipsum
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book it has? What is Lorem Ipsum
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book it has? What is Lorem Ipsum
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book it has?
+      </StyledText>
+      <StyledText dark={props.dark}>
+        What is Lorem Ipsum Lorem Ipsum is simply dummy text of the printing and
+        typesetting industry Lorem Ipsum has been the industry's standard dummy
+        text ever since the 1500s when an unknown printer took a galley of type
+        and scrambled it to make a type specimen book it has? What is Lorem
+        Ipsum Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book it has? What is Lorem Ipsum
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book it has? What is Lorem Ipsum
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book it has? What is Lorem Ipsum
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book it has? What is Lorem Ipsum
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book it has? What is Lorem Ipsum
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book it has? What is Lorem Ipsum
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book it has? What is Lorem Ipsum
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book it has?
+      </StyledText>
     </>
   );
 }
