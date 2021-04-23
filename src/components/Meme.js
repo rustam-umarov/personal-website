@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Header from "../widgets/Header";
 import ImageContainer from "../widgets/ImageContainer";
+import LoadingSpinner from "../widgets/LoadingSpinner";
 
 export default function Meme(props) {
   const [meme, setMeme] = useState({});
@@ -12,20 +13,17 @@ export default function Meme(props) {
   const getMeme = async () => {
     const result = await props.appContext.getRandomMeme();
     setMeme(result);
-    console.log(result);
   };
 
   return (
     <>
-      {meme.data && meme.data.title ? (
+      {meme.data && meme.data.title && (
         <Header text={meme.data.title} dark={props.dark} bold fontSize='70px' />
-      ) : (
-        "Loading..."
       )}
       {meme.data && meme.data.url ? (
         <ImageContainer path={meme.data.url} width='300px' onClick={getMeme} />
       ) : (
-        "Loading..."
+        <LoadingSpinner color={props.dark ? "white" : "black"} loading />
       )}
     </>
   );

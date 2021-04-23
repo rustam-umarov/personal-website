@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import Footer from "./Footer";
 
 const StyledLanding = styled.div`
   overflow: auto;
@@ -25,12 +24,6 @@ const StyledText = styled.p`
 `;
 
 export default function NotFound(props) {
-  const [dark, setDark] = useState(false);
-
-  const setTheme = () => {
-    setDark(!dark);
-  };
-
   return (
     <>
       <StyledLanding dark={props.dark}>

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Home from "./Home";
 import About from "./About";
@@ -42,6 +43,7 @@ const StyledBox = styled.div`
 
 export default function Landing(props) {
   const appContext = useContext(AppContext);
+  const history = useHistory();
   return (
     <>
       <StyledParent dark={appContext.dark}>
@@ -73,6 +75,7 @@ export default function Landing(props) {
                     dark={appContext.dark}
                     getArticle={appContext.getArticle}
                     getArticles={appContext.getArticles}
+                    history={history}
                     {...props}
                   />
                 )}

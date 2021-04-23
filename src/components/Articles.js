@@ -34,21 +34,40 @@ export default function Articles(props) {
   const [pageNumber, setPageNumber] = useState(1);
   const qStrings = queryString.parse(props.location.search);
 
+  //pull set of articles by page number from query string
   useEffect(() => {
-    if (qStrings.p) {
+    const name = props.match.params.id;
+    const articleFromUrl = name ? props.getArticle(name) : null;
+
+    if (name && !articleFromUrl) {
+      //case: article name is supplied, but was not found
+      props.history.push("/notfound");
+    } else if (name && articleFromUrl) {
+      //case: article name is supplied and found
+      setArticle(articleFromUrl);
+    } else if (qStrings.p) {
+      //case: pull by page number
       setPageNumber(qStrings.p);
       setArticles(props.getArticles(qStrings.p));
+    } else if (qStrings.s) {
+      //case: search
+      setArticles(props.getArticles(qStrings.s));
+      setPageNumber(qStrings.p);
+    } else if (!qStrings.p && !qStrings.s && !props.match.params.id) {
+      //case: nothing is supplied, redirect to page 1
+      props.history.push("/articles?p=1");
     }
-  }, [qStrings.p]);
-
-  useEffect(() => {
-    const id = props.match.params.id;
-    const articleFromUrl = id ? props.getArticle(id) : null;
-    setArticle(articleFromUrl);
-  }, [props.match.params.id]);
+  }, [qStrings.p, qStrings.s, props.match.params.id]);
 
   return (
     <>
+      <Header text='Real Articles' dark={props.dark} bold fontSize='70px' />
+      <Paragraph
+        dark={props.dark}
+        fontSize='24px'
+        align='center'
+        text='...should be here very soon'
+      />
       <StyledLanding dark={props.dark}>
         <StyledText dark={props.dark}>
           {article ? (
@@ -68,7 +87,12 @@ export default function Articles(props) {
             })
           ) : (
             <>
-              <Header text='Articles' dark={props.dark} bold fontSize='70px' />
+              <Header
+                text='Real Articles'
+                dark={props.dark}
+                bold
+                fontSize='70px'
+              />
               <Paragraph
                 dark={props.dark}
                 fontSize='24px'

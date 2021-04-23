@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../App.css";
 import { Navbar, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
@@ -46,6 +46,8 @@ const StyledCollapse = styled(Navbar.Toggle)`
 `;
 
 export default function Header(props) {
+  const [expanded, setExpanded] = useState(false);
+
   const activeStyle = {
     backgroundColor: "white",
     color: "black",
@@ -61,7 +63,7 @@ export default function Header(props) {
   `;
 
   return (
-    <StyledNavbar collapseOnSelect expand='md' {...props}>
+    <StyledNavbar expand='md' {...props}>
       <Switch
         checked={props.dark}
         onChange={props.changeTheme}
