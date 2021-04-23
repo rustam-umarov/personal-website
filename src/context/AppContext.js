@@ -1,9 +1,15 @@
 import React, { createContext, useState } from "react";
+import axios from "axios";
 
 export const AppContext = createContext();
 
 export const AppProvider = (props) => {
   const [dark, setDark] = useState(false);
+
+  const getRandomMeme = async () => {
+    const memeObject = await axios.get("http://meme-api.herokuapp.com/gimme");
+    return memeObject;
+  };
 
   const changeTheme = () => {
     const value = localStorage.getItem("dark") === "true" ? "false" : "true";
@@ -51,6 +57,7 @@ export const AppProvider = (props) => {
         changeTheme,
         getArticle,
         getArticles,
+        getRandomMeme,
       }}
     >
       {props.children}

@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../widgets/Header";
+import ImageContainer from "../widgets/ImageContainer";
 
 export default function Meme(props) {
+  const [meme, setMeme] = useState({});
+
+  useEffect(async () => {
+    await getMeme();
+  }, []);
+
+  const getMeme = async () => {
+    const result = await props.appContext.getRandomMeme();
+    setMeme(result);
+    console.log(result);
+  };
+
   return (
     <>
-      <Header text='Random meme' dark={props.dark} bold fontSize='70px' />
+      {meme.data && meme.data.title ? (
+        <Header text={meme.data.title} dark={props.dark} bold fontSize='70px' />
+      ) : (
+        "Loading..."
+      )}
+      {meme.data && meme.data.url ? (
+        <ImageContainer path={meme.data.url} width='300px' onClick={getMeme} />
+      ) : (
+        "Loading..."
+      )}
     </>
   );
 }

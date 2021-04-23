@@ -79,7 +79,13 @@ export default function Landing(props) {
               />
               <Route
                 path='/meme'
-                render={(props) => <Meme {...props} dark={appContext.dark} />}
+                render={(props) => (
+                  <Meme
+                    {...props}
+                    dark={appContext.dark}
+                    appContext={appContext}
+                  />
+                )}
               />
               <Route component={NotFound} />
             </Switch>

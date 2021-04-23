@@ -3,7 +3,6 @@ import Header from "../widgets/Header";
 import Paragraph from "../widgets/Paragraph";
 
 export default function Home(props) {
-  console.log(props);
   return (
     <>
       <Header text='Home page' dark={props.dark} bold fontSize='70px' />
