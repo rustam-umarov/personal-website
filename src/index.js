@@ -4,6 +4,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import "./assets/fonts/CaviarDreams.ttf";
+import "./assets/fonts/Aller.ttf";
 
 ReactDOM.render(
   <React.StrictMode>

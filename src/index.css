@@ -22,3 +22,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@font-face {
+  font-family: "CaviarDreams";
+  src: local("CaviarDreams"),
+    url("./assets//fonts/CaviarDreams.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Aller";
+  src: local("Aller"), url("./assets//fonts/Aller.ttf") format("truetype");
+  font-weight: normal;
+}

@@ -17,6 +17,7 @@ const StyledLink = styled(NavLink)`
   display: inline-block;
   text-decoration: none;
   border: 1px solid transparent;
+  font-family: Aller;
 
   &:hover {
     text-decoration: none;
@@ -52,11 +53,11 @@ export default function Header(props) {
   };
 
   const StyledNavbar = styled(Navbar)`
-    background-color: ${(props) =>
-      props.dark
-        ? props.theme.dark.header.backgroundColor
-        : props.theme.light.header.backgroundColor};
-    color: white;
+    background-color: ${(props) => props.theme.light.header.backgroundColor};
+    color: ${(props) => props.theme.light.header.fontColor};
+    position: fixed;
+    width: 100%;
+    z-index: 1;
   `;
 
   return (
@@ -82,7 +83,7 @@ export default function Header(props) {
           </StyledLink>
         </StyledNav>
         <StyledNav>
-          <StyledLink to='/Meme' activeStyle={activeStyle} {...props}>
+          <StyledLink to='/meme' activeStyle={activeStyle} {...props}>
             Meme
           </StyledLink>
         </StyledNav>

@@ -11,9 +11,14 @@ const theme = {
     },
     body: {
       fontColor: "",
-      backgroundColor: "#282c34",
+      backgroundColor: "#36313D",
     },
-    footer: { fontColor: "black", backgroundColor: "#282c34" },
+    footer: {
+      fontColor: "",
+      backgroundColor: "#f2f2f2",
+      hoverBackgroundColor: "white",
+      hoverFontColor: "",
+    },
   },
 
   light: {
@@ -23,8 +28,13 @@ const theme = {
       hoverBackgroundColor: "white",
       hoverFontColor: "black",
     },
-    body: { fontColor: "", backgroundColor: "#282c34" },
-    footer: { fontColor: "white", backgroundColor: "#282c34" },
+    body: { fontColor: "", backgroundColor: "#f2f2f2" },
+    footer: {
+      fontColor: "white",
+      backgroundColor: "#282c34",
+      hoverBackgroundColor: "white",
+      hoverFontColor: "black",
+    },
   },
 
   colors: {
@@ -32,7 +42,7 @@ const theme = {
     persianGreen: "#06B49A",
     lightBlue: "#AFDBD2",
     onyx: "#36313D",
-    darkBackground: "#282c34",
+    darkBackground: "#36313D",
   },
 };
 

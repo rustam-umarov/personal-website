@@ -3,6 +3,8 @@ import styled from "styled-components";
 import queryString from "query-string";
 import Article from "./Article";
 import ArticleBox from "../widgets/ArticleBox.js";
+import Header from "../widgets/Header";
+import Paragraph from "../widgets/Paragraph";
 
 const StyledLanding = styled.div`
   overflow: auto;
@@ -12,7 +14,10 @@ const StyledLanding = styled.div`
   -moz-transition: background-color 500ms ease-out 0.2s;
   -o-transition: background-color 500ms ease-out 0.2s;
   transition: background-color 500ms ease-out 0.2s;
-  background-color: ${(props) => (props.dark ? "#2e5cb8" : "#f2f2f2")};
+  background-color: ${(props) =>
+    props.dark
+      ? props.theme.dark.body.backgroundColor
+      : props.theme.light.body.backgroundColor};
 `;
 
 const StyledText = styled.p`
@@ -62,7 +67,15 @@ export default function Articles(props) {
               );
             })
           ) : (
-            "Neither article or page were found"
+            <>
+              <Header text='Articles' dark={props.dark} bold fontSize='70px' />
+              <Paragraph
+                dark={props.dark}
+                fontSize='24px'
+                align='center'
+                text='...should be here really soon'
+              />
+            </>
           )}
         </StyledText>
       </StyledLanding>

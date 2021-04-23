@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Home from "./Home";
 import About from "./About";
 import Articles from "./Articles";
-import Lucky from "./Lucky";
+import Meme from "./Meme";
 import NotFound from "./NotFound";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -33,6 +33,7 @@ const StyledBox = styled.div`
   position: relative;
   overflow: hidden;
   padding-bottom: 50px;
+  padding-top: 85px;
   max-width: 1200px;
 
   background-color: ${(props) =>
@@ -77,8 +78,8 @@ export default function Landing(props) {
                 )}
               />
               <Route
-                path='/lucky'
-                render={(props) => <Lucky {...props} dark={appContext.dark} />}
+                path='/meme'
+                render={(props) => <Meme {...props} dark={appContext.dark} />}
               />
               <Route component={NotFound} />
             </Switch>

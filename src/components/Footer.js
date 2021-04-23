@@ -8,14 +8,9 @@ const StyledDiv = styled.div`
   width: 100%;
   font-size: 12px;
   padding-top: 5px;
-  background-color: ${(props) =>
-    props.dark
-      ? props.theme.dark.footer.backgroundColor
-      : props.theme.light.footer.backgroundColor};
-  color: ${(props) =>
-    props.dark
-      ? props.theme.dark.footer.fontColor
-      : props.theme.light.footer.fontColor};
+  background-color: ${(props) => props.theme.light.footer.backgroundColor};
+  color: ${(props) => props.theme.light.footer.fontColor};
+  font-family: Aller;
 `;
 
 export default function Footer(props) {

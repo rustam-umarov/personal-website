@@ -10,7 +10,10 @@ const StyledLanding = styled.div`
   -moz-transition: background-color 500ms ease-out 0.2s;
   -o-transition: background-color 500ms ease-out 0.2s;
   transition: background-color 500ms ease-out 0.2s;
-  background-color: ${(props) => (props.dark ? " #2e5cb8" : "#f2f2f2")};
+  background-color: ${(props) =>
+    props.dark
+      ? props.theme.dark.body.backgroundColor
+      : props.theme.light.body.backgroundColor};
 `;
 
 const StyledText = styled.p`
