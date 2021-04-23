@@ -7,7 +7,7 @@ export const AppProvider = (props) => {
   const [dark, setDark] = useState(false);
 
   const getRandomMeme = async () => {
-    const memeObject = await axios.get("http://meme-api.herokuapp.com/gimme");
+    const memeObject = await axios.get("https://meme-api.herokuapp.com/gimme");
     return memeObject;
   };
 
