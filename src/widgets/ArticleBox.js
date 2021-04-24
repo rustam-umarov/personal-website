@@ -22,6 +22,7 @@ const StyledTag = styled.p`
   font-weight: bold;
   cursor: pointer;
   float: left;
+  font-family: Aller;
   color: ${(props) => (props.dark ? "white" : "black")};
 
   &:hover {
@@ -34,6 +35,7 @@ const StyledHeader = styled.p`
   font-size: 23px;
   font-family: Basketball, serif;
   padding-right: 20xpx;
+  font-family: CaviarDreams;
 `;
 
 const StyledText = styled.p`
@@ -41,10 +43,13 @@ const StyledText = styled.p`
   padding-right: 20px;
   text-align: justify;
   float: left;
+  font-family: Aller;
 `;
 
 const StyledDate = styled.p`
   font-size: 8px;
+  font-family: Aller;
+
   float: left;
 `;
 const StyledMore = styled.p`

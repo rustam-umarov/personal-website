@@ -3,6 +3,7 @@ import imagePath from "../assets/images/me.png";
 import Paragraph from "../widgets/Paragraph";
 import ImageContainer from "../widgets/ImageContainer";
 import Header from "../widgets/Header";
+import Social from "../widgets/Social";
 
 export default function About(props) {
   return (
@@ -72,6 +73,7 @@ export default function About(props) {
         intro. If you feel like keeping in touch, let’s connect, my social media
         is down below. Take care!'
       />
+
       <Paragraph
         dark={props.dark}
         italic
@@ -81,6 +83,7 @@ export default function About(props) {
         text='P.S. If you still feel like diving into Gagarin’s story, or if you skipped
       everything once I said “However”, the real story is <a href="https://en.wikipedia.org/wiki/Yuri_Gagarin">here.</a>'
       />
+      <Social />
     </>
   );
 }

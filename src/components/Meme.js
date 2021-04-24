@@ -18,7 +18,7 @@ export default function Meme(props) {
   return (
     <>
       {meme.data && meme.data.title && (
-        <Header text={meme.data.title} dark={props.dark} bold fontSize='70px' />
+        <Header text={meme.data.title} dark={props.dark} bold fontSize='20px' />
       )}
       {meme.data && meme.data.url ? (
         <ImageContainer path={meme.data.url} width='300px' onClick={getMeme} />
