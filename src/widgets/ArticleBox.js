@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 
 const StyledBox = styled.div`
-  border: ${(props) => (props.dark ? "white" : "black")} 3px solid;
+  // border: ${(props) => (props.dark ? "white" : "black")} 3px solid;
   border-radius: 5px;
   max-width: 700px;
   margin: auto;
