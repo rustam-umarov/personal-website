@@ -21,6 +21,7 @@ export const AppProvider = (props) => {
     if (searchObject && searchObject.query) {
       return await searchAll(searchObject.query);
     } else if (searchObject && searchObject.page) {
+      console.log("page1");
       return [
         {
           id: 1,

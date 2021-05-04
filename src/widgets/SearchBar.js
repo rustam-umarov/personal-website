@@ -18,10 +18,8 @@ export default function SearchBar(props) {
     e.target.value ? setIsLoading(true) : setIsLoading(false);
     setTime(
       setTimeout(() => {
-        if (e.target.value) {
-          setIsLoading(false);
-          props.history.push(`${props.url}?s=${e.target.value}`);
-        }
+        setIsLoading(false);
+        props.history.push(`${props.url}?s=${e.target.value}`);
       }, 1500)
     );
   };
