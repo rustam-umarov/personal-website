@@ -1,5 +1,10 @@
 import React, { useContext } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import Home from "./Home";
@@ -55,11 +60,9 @@ export default function Landing(props) {
           />
           <StyledBox dark={appContext.dark}>
             <Switch>
-              <Route
-                exact
-                path='/'
-                render={(props) => <Home {...props} dark={appContext.dark} />}
-              />
+              <Route exact path='/'>
+                <Redirect to='/home' />
+              </Route>
               <Route
                 path='/home'
                 render={(props) => <Home {...props} dark={appContext.dark} />}
