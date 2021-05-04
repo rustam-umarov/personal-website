@@ -58,8 +58,16 @@ export default function Articles(props) {
       //case: search
       searchObject.query = qStrings.s;
       setArticles(await props.getArticles(searchObject));
-      setPageNumber(qStrings.p);
-    } else if (!qStrings.p && !qStrings.s && !props.match.params.id) {
+    } else if (qStrings.t) {
+      //case: search
+      searchObject.tag = qStrings.t;
+      setArticles(await props.getArticles(searchObject));
+    } else if (
+      !qStrings.p &&
+      !qStrings.s &&
+      !qStrings.t &&
+      !props.match.params.id
+    ) {
       //case: nothing is supplied, redirect to page 1
       props.history.push("/articles?p=1");
     }

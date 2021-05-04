@@ -77,7 +77,7 @@ export default function ArticleBox(props) {
       {props.tags.map((tag) => (
         <StyledTag
           {...props}
-          onClick={() => props.history.push(`/articles?s=${tag}`)}
+          onClick={() => props.history.push(`/articles?t=${tag}`)}
         >
           {tag}
         </StyledTag>
