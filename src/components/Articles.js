@@ -31,9 +31,26 @@ const StyledText = styled.p`
 `;
 
 const StyledPageNumber = styled.text`
-  margin-left: 20px;
-  color: ${(props) => (props.bold ? "red" : "black")};
+  border: black solid 1px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-left: 10px;
+  padding: 5px;
+  font-size: 10px;
+  font-weight: bold;
   cursor: pointer;
+  font-family: Aller;
+  color: ${(props) => (props.dark ? "white" : "black")};
+  background-color: ${(props) => (props.dark ? "black" : "white")};
+
+  &:hover {
+    color: ${(props) => (props.dark ? "black" : "white")};
+    background-color: ${(props) => (props.dark ? "white" : "black")};
+  }
+
+  ${(props) =>
+    (props.active && props.dark && "color: black; background-color: white;") ||
+    (props.active && !props.dark && "color: white; background-color: black")}
 `;
 
 export default function Articles(props) {
@@ -99,8 +116,21 @@ export default function Articles(props) {
 
   const iteratePages = () => {
     const pages = [];
-    for (let i = 0; i < pageCount; i++) {
-      pages.push(i + 1);
+
+    if (pageNumber == 1 && pageCount > 1) {
+      pages.push(1);
+      pageCount >= 2 && pages.push(2);
+      pageCount >= 3 && pages.push(3);
+    } else if (pageNumber > 1 && pageNumber < pageCount) {
+      pageNumber - 1 > 0 && pages.push(pageNumber - 1);
+      pages.push(pageNumber);
+
+      parseInt(pageNumber) + 1 <= pageCount &&
+        pages.push(parseInt(pageNumber) + 1);
+    } else if (pageNumber > 1 && pageNumber == pageCount) {
+      pageNumber - 2 > 0 && pages.push(pageNumber - 2);
+      pageNumber - 1 > 0 && pages.push(pageNumber - 1);
+      pages.push(pageNumber);
     }
     return pages;
   };
@@ -163,7 +193,7 @@ export default function Articles(props) {
           iteratePages().map((page) => {
             return (
               <StyledPageNumber
-                bold={pageNumber == page}
+                active={pageNumber == page}
                 onClick={() => goToPage(page)}
               >
                 {page}

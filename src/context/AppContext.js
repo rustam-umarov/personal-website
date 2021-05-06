@@ -6,7 +6,7 @@ export const AppContext = createContext();
 export const AppProvider = (props) => {
   const [dark, setDark] = useState(false);
   const config = require("../assets/articles/config.json");
-  const articlesPerPage = 4;
+  const articlesPerPage = 2;
 
   const getRandomMeme = async () => {
     const memeObject = await axios.get("https://meme-api.herokuapp.com/gimme");
