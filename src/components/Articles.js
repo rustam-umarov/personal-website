@@ -30,10 +30,18 @@ const StyledText = styled.p`
   color: ${(props) => (props.dark ? "white" : "black")};
 `;
 
+const StyledPageNumber = styled.text`
+  margin-left: 20px;
+  color: ${(props) => (props.bold ? "red" : "black")};
+  cursor: pointer;
+`;
+
 export default function Articles(props) {
   const [article, setArticle] = useState(null);
   const [articles, setArticles] = useState(null);
   const [pageNumber, setPageNumber] = useState(1);
+  const [pageCount, setPageCount] = useState();
+  const [withPages, setWithPages] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const qStrings = queryString.parse(props.location.search);
 
@@ -55,16 +63,25 @@ export default function Articles(props) {
       if (qStrings.p) {
         console.log("pull by page number");
         //case: pull by page number
-        setPageNumber(qStrings.p);
-        searchObject.page = qStrings.p;
+        const maxPage = await props.getPages();
+        if (qStrings.p < 1 || qStrings.p > maxPage) {
+          props.history.push("/notfound");
+        } else {
+          setPageCount(maxPage);
+          setPageNumber(qStrings.p);
+          setWithPages(true);
+          searchObject.page = qStrings.p;
+        }
       } else if (qStrings.s) {
         console.log("search");
         //case: search
         searchObject.query = qStrings.s;
+        setWithPages(false);
       } else if (qStrings.t) {
         console.log("tag");
         //case: tag
         searchObject.tag = qStrings.t;
+        setWithPages(false);
       }
       setArticles(await props.getArticles(searchObject));
     } else if (
@@ -79,6 +96,18 @@ export default function Articles(props) {
     }
     setIsLoading(false);
   }, [qStrings.p, qStrings.s, qStrings.t, props.match.params.id]);
+
+  const iteratePages = () => {
+    const pages = [];
+    for (let i = 0; i < pageCount; i++) {
+      pages.push(i + 1);
+    }
+    return pages;
+  };
+
+  const goToPage = (page) => {
+    props.history.push(`/articles?p=${page}`);
+  };
 
   return (
     <>
@@ -128,6 +157,19 @@ export default function Articles(props) {
             )}
           </StyledText>
         )}
+        {withPages &&
+          pageCount &&
+          pageNumber &&
+          iteratePages().map((page) => {
+            return (
+              <StyledPageNumber
+                bold={pageNumber == page}
+                onClick={() => goToPage(page)}
+              >
+                {page}
+              </StyledPageNumber>
+            );
+          })}
       </StyledLanding>
     </>
   );

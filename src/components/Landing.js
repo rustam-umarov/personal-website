@@ -78,6 +78,7 @@ export default function Landing(props) {
                     dark={appContext.dark}
                     getArticle={appContext.getArticle}
                     getArticles={appContext.getArticles}
+                    getPages={appContext.getAllPageNumbers}
                     history={history}
                     {...props}
                   />
