@@ -44,23 +44,28 @@ export default function Articles(props) {
     const searchObject = {};
 
     if (name && !articleFromUrl) {
+      console.log("not found");
       //case: article name is supplied, but was not found
       props.history.push("/notfound");
     } else if (name && articleFromUrl) {
+      console.log("article name is supplied and found");
       //case: article name is supplied and found
       setArticle(articleFromUrl);
-    } else if (qStrings.p) {
-      //case: pull by page number
-      setPageNumber(qStrings.p);
-      searchObject.page = qStrings.p;
-      setArticles(await props.getArticles(searchObject));
-    } else if (qStrings.s) {
-      //case: search
-      searchObject.query = qStrings.s;
-      setArticles(await props.getArticles(searchObject));
-    } else if (qStrings.t) {
-      //case: search
-      searchObject.tag = qStrings.t;
+    } else if (qStrings.p || qStrings.s || qStrings.t) {
+      if (qStrings.p) {
+        console.log("pull by page number");
+        //case: pull by page number
+        setPageNumber(qStrings.p);
+        searchObject.page = qStrings.p;
+      } else if (qStrings.s) {
+        console.log("search");
+        //case: search
+        searchObject.query = qStrings.s;
+      } else if (qStrings.t) {
+        console.log("tag");
+        //case: tag
+        searchObject.tag = qStrings.t;
+      }
       setArticles(await props.getArticles(searchObject));
     } else if (
       !qStrings.p &&
@@ -68,11 +73,12 @@ export default function Articles(props) {
       !qStrings.t &&
       !props.match.params.id
     ) {
+      console.log("nothing is supplied, redirect to page 1");
       //case: nothing is supplied, redirect to page 1
       props.history.push("/articles?p=1");
     }
     setIsLoading(false);
-  }, [qStrings.p, qStrings.s, props.match.params.id]);
+  }, [qStrings.p, qStrings.s, qStrings.t, props.match.params.id]);
 
   return (
     <>
@@ -83,11 +89,13 @@ export default function Articles(props) {
         align='center'
         text='...should be here very soon'
       />
-      <SearchBar
-        searchFunction={props.getArticles}
-        history={props.history}
-        url='/articles'
-      />
+      {articles && articles.length > 0 && (
+        <SearchBar
+          searchFunction={props.getArticles}
+          history={props.history}
+          url='/articles'
+        />
+      )}
       <StyledLanding dark={props.dark}>
         {isLoading ? (
           <LoadingSpinner />
@@ -110,17 +118,11 @@ export default function Articles(props) {
               })
             ) : (
               <>
-                <Header
-                  text='Real Articles'
-                  dark={props.dark}
-                  bold
-                  fontSize='70px'
-                />
                 <Paragraph
                   dark={props.dark}
                   fontSize='24px'
                   align='center'
-                  text='...should be here really soon'
+                  text='nothing to show :('
                 />
               </>
             )}

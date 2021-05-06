@@ -77,7 +77,9 @@ export default function ArticleBox(props) {
       {props.tags.map((tag) => (
         <StyledTag
           {...props}
-          onClick={() => props.history.push(`/articles?t=${tag}`)}
+          onClick={() =>
+            props.history.push(`/articles?t=${tag.replace("#", "%23")}`)
+          }
         >
           {tag}
         </StyledTag>
