@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { createContext, useState } from "react";
 import axios from "axios";
 
 export const AppContext = createContext();
@@ -64,7 +64,7 @@ export const AppProvider = (props) => {
 
   const getAllPageNumbers = () => {
     return Promise.resolve(
-      Math.ceil(Math.ceil(Object.keys(config).length / articlesPerPage))
+      Math.ceil(Object.keys(config).length / articlesPerPage)
     );
   };
 

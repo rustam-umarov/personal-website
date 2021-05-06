@@ -15,6 +15,7 @@ import NotFound from "./NotFound";
 import Header from "./Header";
 import Footer from "./Footer";
 import { AppContext } from "../context/AppContext";
+import Social from "../widgets/Social";
 
 const StyledParent = styled.div`
   -webkit-transition: background-color 500ms ease-out 0.2s;
@@ -49,57 +50,67 @@ const StyledBox = styled.div`
 export default function Landing(props) {
   const appContext = useContext(AppContext);
   const history = useHistory();
+  const inMaintenance = true;
   return (
     <>
-      <StyledParent dark={appContext.dark}>
-        <Router>
-          <Header
-            {...props}
-            dark={appContext.dark}
-            changeTheme={appContext.changeTheme}
-          />
-          <StyledBox dark={appContext.dark}>
-            <Switch>
-              <Route exact path='/'>
-                <Redirect to='/home' />
-              </Route>
-              <Route
-                path='/home'
-                render={(props) => <Home {...props} dark={appContext.dark} />}
-              />
-              <Route
-                path='/about'
-                render={(props) => <About {...props} dark={appContext.dark} />}
-              />
-              <Route
-                path='/articles/:id?'
-                render={(props) => (
-                  <Articles
-                    dark={appContext.dark}
-                    getArticle={appContext.getArticle}
-                    getArticles={appContext.getArticles}
-                    getPages={appContext.getAllPageNumbers}
-                    history={history}
-                    {...props}
-                  />
-                )}
-              />
-              <Route
-                path='/meme'
-                render={(props) => (
-                  <Meme
-                    {...props}
-                    dark={appContext.dark}
-                    appContext={appContext}
-                  />
-                )}
-              />
-              <Route component={NotFound} />
-            </Switch>
-          </StyledBox>
-        </Router>
-        <Footer dark={appContext.dark} {...props} />
-      </StyledParent>
+      {inMaintenance ? (
+        <>
+          <p>Maintenance...</p>
+          <Social />
+        </>
+      ) : (
+        <StyledParent dark={appContext.dark}>
+          <Router>
+            <Header
+              {...props}
+              dark={appContext.dark}
+              changeTheme={appContext.changeTheme}
+            />
+            <StyledBox dark={appContext.dark}>
+              <Switch>
+                <Route exact path='/'>
+                  <Redirect to='/home' />
+                </Route>
+                <Route
+                  path='/home'
+                  render={(props) => <Home {...props} dark={appContext.dark} />}
+                />
+                <Route
+                  path='/about'
+                  render={(props) => (
+                    <About {...props} dark={appContext.dark} />
+                  )}
+                />
+                <Route
+                  path='/articles/:id?'
+                  render={(props) => (
+                    <Articles
+                      dark={appContext.dark}
+                      getArticle={appContext.getArticle}
+                      getArticles={appContext.getArticles}
+                      getPages={appContext.getAllPageNumbers}
+                      history={history}
+                      {...props}
+                    />
+                  )}
+                />
+                <Route
+                  path='/meme'
+                  render={(props) => (
+                    <Meme
+                      {...props}
+                      dark={appContext.dark}
+                      appContext={appContext}
+                    />
+                  )}
+                />
+                <Route component={NotFound} />
+              </Switch>
+            </StyledBox>
+          </Router>
+          <Footer dark={appContext.dark} {...props} />
+        </StyledParent>
+      )}
     </>
   );
 }
