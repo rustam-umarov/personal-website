@@ -133,7 +133,7 @@ export default function About(props) {
         bold
         fontSize='12px'
         align='center'
-        text='P.P.S. React repo lives <a href="https://en.wikipedia.org/wiki/Yuri_Gagarin">here.</a>, if you want to take a look at it. '
+        text='P.P.S. React repo lives <a href="https://github.com/rustam-umarov/personal-website">here.</a>, if you want to take a look at it. '
       />
       <Social />
     </>
