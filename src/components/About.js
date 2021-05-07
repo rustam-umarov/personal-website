@@ -10,7 +10,7 @@ import styled from "styled-components";
 const StyledTags = styled.div`
   width: 85%;
   margin: 0px auto;
-  margin-bottom: 120px;
+  margin-bottom: 150px;
 `;
 
 export default function About(props) {
@@ -50,7 +50,6 @@ export default function About(props) {
           {...props}
         />
       </StyledTags>
-
       <Paragraph
         align='center'
         dark={props.dark}
