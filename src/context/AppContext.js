@@ -21,12 +21,11 @@ export const AppProvider = (props) => {
 
   const getArticles = (searchObject) => {
     if (searchObject && searchObject.query) {
-      // TODO:
       return Promise.resolve(searchAll(searchObject.query));
     } else if (searchObject && searchObject.page) {
       return getArticlesForPage(searchObject, articlesPerPage);
     } else if (searchObject && searchObject.tag) {
-      return Promise.resolve(searchTag(searchObject.tag));
+      return Promise.resolve(searchText(searchObject.tag, "tag"));
     }
   };
 
@@ -69,32 +68,43 @@ export const AppProvider = (props) => {
   };
 
   const searchAll = (text) => {
-    const searchText = Promise.resolve(text);
-    const searchTags = Promise.resolve(searchTag(text));
-    const searchHeader = Promise.resolve("hey");
+    const searchParagraph = Promise.resolve(searchText(text, "text"));
+    const searchTags = Promise.resolve(searchText(text, "tag"));
+    const searchHeader = Promise.resolve(searchText(text, "header"));
 
-    return Promise.all([searchText, searchTags, searchHeader]).then(
-      (values) => {
-        return [
-          {
-            id: 1,
-            header: "Mocking static HttpClient in .NET 5",
-            text:
-              "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).",
-            tags: ["JSON", "C#", "XML", "JWT", "Java", "SpringBoot"],
-            date: "November 7, 2020",
-          },
-        ];
+    return Promise.all([searchParagraph, searchTags, searchHeader]).then(
+      function ([first, second, third]) {
+        return first.concat(second, third);
       }
     );
   };
 
-  const searchTag = (tag) => {
+  const searchText = (text, category) => {
     const articles = [];
     Object.keys(config).forEach((name) => {
       const article = require(`../assets/articles/${config[name]}-${name}.json`);
-      if (article && article.tags.includes(tag)) {
-        articles.push(article);
+      switch (category) {
+        case "tag":
+          if (article) {
+            article.tags.forEach((tag) => {
+              tag.toLowerCase().includes(text.toLowerCase()) &&
+                articles.push(article);
+            });
+          }
+        case "header":
+          if (
+            article &&
+            article.header.toLowerCase().includes(text.toLowerCase())
+          ) {
+            articles.push(article);
+          }
+        case "text":
+          if (
+            article &&
+            article.text.toLowerCase().includes(text.toLowerCase())
+          ) {
+            articles.push(article);
+          }
       }
     });
     return articles;

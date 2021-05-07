@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Tags from "../widgets/Tags";
 
 const StyledBox = styled.div`
   // border: ${(props) => (props.dark ? "white" : "black")} 3px solid;
@@ -9,26 +10,6 @@ const StyledBox = styled.div`
   margin-top: 20px;
   padding-left: 20px;
   overflow: hidden;
-`;
-
-const StyledTag = styled.p`
-  border: black solid 1px;
-  border-radius: 12px;
-  background-color: ${(props) => (props.dark ? "black" : "white")};
-  display: inline-block;
-  margin-left: 10px;
-  padding: 5px;
-  font-size: 10px;
-  font-weight: bold;
-  cursor: pointer;
-  float: left;
-  font-family: Aller;
-  color: ${(props) => (props.dark ? "white" : "black")};
-
-  &:hover {
-    color: ${(props) => (props.dark ? "black" : "white")};
-    background-color: ${(props) => (props.dark ? "white" : "black")};
-  }
 `;
 
 const StyledHeader = styled.p`
@@ -74,16 +55,7 @@ export default function ArticleBox(props) {
           continue reading
         </StyledMore>
       </StyledText>
-      {props.tags.map((tag) => (
-        <StyledTag
-          {...props}
-          onClick={() =>
-            props.history.push(`/articles?t=${tag.replace("#", "%23")}`)
-          }
-        >
-          {tag}
-        </StyledTag>
-      ))}
+      <Tags {...props} />
     </StyledBox>
   );
 }

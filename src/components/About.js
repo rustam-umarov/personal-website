@@ -4,6 +4,14 @@ import Paragraph from "../widgets/Paragraph";
 import ImageContainer from "../widgets/ImageContainer";
 import Header from "../widgets/Header";
 import Social from "../widgets/Social";
+import Tags from "../widgets/Tags";
+import styled from "styled-components";
+
+const StyledTags = styled.div`
+  width: 85%;
+  margin: 0 auto;
+  margin-bottom: 120px;
+`;
 
 export default function About(props) {
   return (
@@ -15,6 +23,41 @@ export default function About(props) {
         fontSize='70px'
       />
       <ImageContainer path={imagePath} width='250px' height='250px' />
+      <Paragraph
+        dark={props.dark}
+        bold
+        fontSize='12px'
+        align='center'
+        text='Short story:'
+      />
+      <StyledTags>
+        <Tags
+          tags={[
+            "C#",
+            ".NET",
+            "JavaScript ",
+            "NodeJS",
+            "ReactJS",
+            "React-Native",
+            "Docker",
+            "Jenkins",
+            "Linux",
+            "Pizza",
+            "Soccer",
+            "Music",
+            "Warzone",
+          ]}
+          {...props}
+        />
+      </StyledTags>
+
+      <Paragraph
+        align='center'
+        dark={props.dark}
+        bold
+        fontSize='12px'
+        text='Long story bro:'
+      />
       <Paragraph
         dark={props.dark}
         text='For over hundreds of decades humanity was striving to go beyond
@@ -82,6 +125,15 @@ export default function About(props) {
         align='center'
         text='P.S. If you still feel like diving into Gagarin’s story, or if you skipped
       everything once I said “However”, the real story is <a href="https://en.wikipedia.org/wiki/Yuri_Gagarin">here.</a>'
+      />
+
+      <Paragraph
+        dark={props.dark}
+        italic
+        bold
+        fontSize='12px'
+        align='center'
+        text='P.P.S. React repo lives <a href="https://en.wikipedia.org/wiki/Yuri_Gagarin">here.</a>, if you want to take a look at it. '
       />
       <Social />
     </>

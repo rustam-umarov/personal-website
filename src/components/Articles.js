@@ -148,7 +148,7 @@ export default function Articles(props) {
         align='center'
         text='...should be here very soon'
       />
-      {articles && articles.length > 0 && (
+      {!article && (
         <SearchBar
           searchFunction={props.getArticles}
           history={props.history}
@@ -181,7 +181,7 @@ export default function Articles(props) {
                   dark={props.dark}
                   fontSize='24px'
                   align='center'
-                  text='nothing to show :('
+                  text='nothing was found :('
                 />
               </>
             )}
@@ -193,7 +193,7 @@ export default function Articles(props) {
           iteratePages().map((page) => {
             return (
               <StyledPageNumber
-                active={pageNumber == page}
+                active={pageNumber === page}
                 onClick={() => goToPage(page)}
               >
                 {page}

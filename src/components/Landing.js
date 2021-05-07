@@ -50,7 +50,7 @@ const StyledBox = styled.div`
 export default function Landing(props) {
   const appContext = useContext(AppContext);
   const history = useHistory();
-  const inMaintenance = true;
+  const inMaintenance = false;
   return (
     <>
       {inMaintenance ? (
