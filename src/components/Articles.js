@@ -193,7 +193,7 @@ export default function Articles(props) {
           iteratePages().map((page) => {
             return (
               <StyledPageNumber
-                active={pageNumber === page}
+                active={pageNumber == page}
                 onClick={() => goToPage(page)}
               >
                 {page}

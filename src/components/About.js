@@ -9,7 +9,7 @@ import styled from "styled-components";
 
 const StyledTags = styled.div`
   width: 85%;
-  margin: 0 auto;
+  margin: 0px auto;
   margin-bottom: 120px;
 `;
 
