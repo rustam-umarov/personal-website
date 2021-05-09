@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import axios from "axios";
 
 export const AppContext = createContext();
@@ -7,6 +7,12 @@ export const AppProvider = (props) => {
   const [dark, setDark] = useState(false);
   const config = require("../assets/articles/config.json");
   const articlesPerPage = 2;
+
+  useEffect(() => {
+    if (localStorage.getItem("dark") === "true") {
+      setDark(true);
+    }
+  }, []);
 
   const getRandomMeme = async () => {
     const memeObject = await axios.get("https://meme-api.herokuapp.com/gimme");
