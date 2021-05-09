@@ -12,6 +12,26 @@ const StyledBox = styled.div`
   overflow: hidden;
 `;
 
+const StyledTag = styled.p`
+  border: black solid 1px;
+  border-radius: 12px;
+  background-color: ${(props) => (props.dark ? "black" : "white")};
+  display: inline-block;
+  margin-left: 10px;
+  padding: 5px;
+  font-size: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  float: left;
+  font-family: Aller;
+  color: ${(props) => (props.dark ? "white" : "black")};
+
+  &:hover {
+    color: ${(props) => (props.dark ? "black" : "white")};
+    background-color: ${(props) => (props.dark ? "white" : "black")};
+  }
+`;
+
 const StyledHeader = styled.p`
   font-size: 23px;
   font-family: Basketball, serif;

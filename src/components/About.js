@@ -8,9 +8,10 @@ import Tags from "../widgets/Tags";
 import styled from "styled-components";
 
 const StyledTags = styled.div`
-  width: 85%;
-  margin: 0px auto;
-  margin-bottom: 150px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  max-width: 85%;
 `;
 
 export default function About(props) {
@@ -132,7 +133,7 @@ export default function About(props) {
         bold
         fontSize='12px'
         align='center'
-        text='P.P.S. React repo lives <a href="https://github.com/rustam-umarov/personal-website">here.</a>, if you want to take a look at it. '
+        text='P.P.S. React repo lives <a href="https://github.com/rustam-umarov/personal-website">here</a>, if you want to take a look at it. '
       />
       <Social />
     </>
