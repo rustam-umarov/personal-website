@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Header from "../widgets/Header";
 import ImageContainer from "../widgets/ImageContainer";
 import LoadingSpinner from "../widgets/LoadingSpinner";
+import Modal from "../widgets/Modal";
 
 export default function Meme(props) {
   const [meme, setMeme] = useState({});
@@ -25,6 +26,12 @@ export default function Meme(props) {
       ) : (
         <LoadingSpinner color={props.dark ? "white" : "black"} loading />
       )}
+      <Modal
+        open
+        dark={props.dark}
+        text='Just click/tap on the meme to view another one!'
+        closingText='Got it!'
+      />
     </>
   );
 }
