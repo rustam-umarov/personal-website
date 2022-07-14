@@ -72,7 +72,7 @@ export default function About(props) {
         dark={props.dark}
         text='Since you somehow ended up over here and, I hope, wondering who
         this handsome guy is (not Yuri Gagarin, but the guy on the photo above)
-        - my name is Rustam and I am 27 years old(now when I stated my age, I
+        - my name is Rustam and I am 28 years old(now when I stated my age, I
         will have to update my page every year, or… write some date time
         function to do that for me hmm… will think about it later, let me show
         off a bit first). Now I am thinking this is the most standard and boring
